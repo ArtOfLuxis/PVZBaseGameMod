@@ -1,4 +1,4 @@
-package me.artofluxis.traits.zombies
+package me.artofluxis.mod.traits.zombies
 
 import game.objects.*
 import game.objects.logic.*

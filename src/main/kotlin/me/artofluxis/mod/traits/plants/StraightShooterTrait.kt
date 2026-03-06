@@ -1,4 +1,4 @@
-package me.artofluxis.traits.plants
+package me.artofluxis.mod.traits.plants
 
 import Position
 import game.objects.LawnObject
@@ -7,9 +7,6 @@ import game.types.ProjectileType
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.JsonObject
-import me.artofluxis.serializers.HitboxSerializer
-import me.artofluxis.serializers.PositionSerializer
-import me.artofluxis.serializers.ProjectileTypeSerializer
 import trait.Trait
 import trait.TraitInstance
 import trait.TraitType
@@ -18,11 +15,11 @@ class StraightShooterTrait(
     jsonObject: JsonObject
 ) : Trait(
     mapOf(
-        "projectile" to ProjectileTypeSerializer,
-        "projectilePositionOffset" to PositionSerializer,
+        "projectile" to me.artofluxis.mod.serializers.ProjectileTypeSerializer,
+        "projectilePositionOffset" to me.artofluxis.mod.serializers.PositionSerializer,
         "interval" to Double.serializer(),
         "additionalInterval" to Double.serializer(),
-        "detectionHitbox" to HitboxSerializer,
+        "detectionHitbox" to me.artofluxis.mod.serializers.HitboxSerializer,
         "projectileAmount" to Int.serializer(),
         "projectileInterval" to Double.serializer(),
         "attackRows" to ListSerializer(Int.serializer()),

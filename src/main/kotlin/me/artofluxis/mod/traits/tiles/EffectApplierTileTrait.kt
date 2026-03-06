@@ -1,16 +1,14 @@
-package me.artofluxis.traits.tiles
+package me.artofluxis.mod.traits.tiles
 
 import effects.Effect
-import game.objects.LawnObject
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
-import me.artofluxis.serializers.EffectSerializer
 import trait.*
 
 class EffectApplierTileTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-    "effect" to EffectSerializer,
+    "effect" to me.artofluxis.mod.serializers.EffectSerializer,
     "effectTime" to Double.serializer(),
 ), TraitType.TILE) {
     override val values = deserialize(jsonObject)

@@ -1,4 +1,4 @@
-package me.artofluxis.serializers
+package me.artofluxis.mod.serializers
 
 import game.hitbox.*
 import kotlinx.serialization.*

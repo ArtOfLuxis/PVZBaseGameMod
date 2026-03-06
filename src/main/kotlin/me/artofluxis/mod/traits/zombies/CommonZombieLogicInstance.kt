@@ -1,13 +1,15 @@
-package me.artofluxis.traits.zombies
+package me.artofluxis.mod.traits.zombies
 
 import Position
-import effects.*
-import effects.visual.*
-import game.objects.logic.*
+import effects.Effect
+import effects.EffectModifierType
+import game.objects.logic.LawnZombie
 import korlibs.math.geom.Vector2D
-import trait.*
-import trait.events.alive.*
-import kotlin.random.*
+import me.artofluxis.mod.Util
+import trait.TraitInstance
+import trait.events.alive.EffectStatusTraitListener
+import trait.events.alive.TickTraitListener
+import kotlin.random.Random
 
 class CommonZombieLogicInstance(
     override val parent: LawnZombie,
@@ -43,27 +45,10 @@ class CommonZombieLogicInstance(
     }
 
     override fun appliedEffect(effect: Effect, effectTime: Double) {
-        val currentTime = parent.effects[effect]?.remaining() ?: 0.0
-        if (effectTime > currentTime)
-            parent.effects[effect] = Timer.start(effectTime)
-
-        effect.visuals.forEach {
-            when (it) {
-                is EffectVisualTint -> {
-                    parent.highlightFilter.colors.add(it.color)
-                }
-            }
-        }
+        Util.applyEffect(parent, effect, effectTime)
     }
 
     override fun removedEffect(effect: Effect) {
-        parent.effects.remove(effect)
-        effect.visuals.forEach {
-            when (it) {
-                is EffectVisualTint -> {
-                    parent.highlightFilter.colors.remove(it.color)
-                }
-            }
-        }
+        Util.removeEffect(parent, effect)
     }
 }

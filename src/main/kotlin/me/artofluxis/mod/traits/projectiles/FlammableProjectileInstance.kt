@@ -1,4 +1,4 @@
-package me.artofluxis.traits.projectiles
+package me.artofluxis.mod.traits.projectiles
 
 import game.objects.logic.*
 import trait.*
@@ -6,6 +6,4 @@ import trait.*
 class FlammableProjectileInstance(
     override val parent: LawnProjectile,
     override val trait: FlammableProjectileTrait
-) : TraitInstance(parent, trait) {
-
-}
+) : TraitInstance(parent, trait)

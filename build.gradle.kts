@@ -6,7 +6,7 @@ plugins {
 }
 
 // change to something else, and change package names in src/main/kotlin to the new group
-val groupName = "me.artofluxis"
+val groupName = "me.artofluxis.mod"
 
 group = groupName
 version = "1.0"

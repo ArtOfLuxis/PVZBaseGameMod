@@ -1,4 +1,4 @@
-package me.artofluxis.traits.plants
+package me.artofluxis.mod.traits.plants
 
 import game.objects.*
 import game.objects.logic.*

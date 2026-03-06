@@ -1,13 +1,13 @@
-package me.artofluxis
+package me.artofluxis.mod
 
-import me.artofluxis.traits.plants.CommonPlantLogicTrait
-import me.artofluxis.traits.plants.StraightShooterTrait
-import me.artofluxis.traits.projectiles.EffectApplierProjectileTrait
-import me.artofluxis.traits.projectiles.FlammableProjectileTrait
-import me.artofluxis.traits.projectiles.StraightProjectileLogicTrait
-import me.artofluxis.traits.tiles.EffectApplierTileTrait
+import me.artofluxis.mod.traits.plants.CommonPlantLogicTrait
+import me.artofluxis.mod.traits.plants.StraightShooterTrait
+import me.artofluxis.mod.traits.projectiles.EffectApplierProjectileTrait
+import me.artofluxis.mod.traits.projectiles.FlammableProjectileTrait
+import me.artofluxis.mod.traits.projectiles.StraightProjectileLogicTrait
+import me.artofluxis.mod.traits.tiles.EffectApplierTileTrait
 import trait.Trait
-import me.artofluxis.traits.zombies.CommonZombieLogicTrait
+import me.artofluxis.mod.traits.zombies.CommonZombieLogicTrait
 
 @Suppress("unused")
 object ModInitializer {

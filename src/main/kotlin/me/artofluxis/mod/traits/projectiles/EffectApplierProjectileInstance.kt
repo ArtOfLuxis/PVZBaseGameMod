@@ -1,4 +1,4 @@
-package me.artofluxis.traits.projectiles
+package me.artofluxis.mod.traits.projectiles
 
 import game.objects.*
 import game.objects.logic.*

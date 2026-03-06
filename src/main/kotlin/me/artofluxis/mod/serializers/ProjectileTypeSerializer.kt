@@ -1,4 +1,4 @@
-package me.artofluxis.serializers
+package me.artofluxis.mod.serializers
 
 import game.types.*
 import kotlinx.serialization.*

@@ -1,4 +1,4 @@
-package me.artofluxis.serializers
+package me.artofluxis.mod.serializers
 
 import Position
 import kotlinx.serialization.*
