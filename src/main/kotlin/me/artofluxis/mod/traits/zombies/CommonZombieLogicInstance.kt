@@ -1,14 +1,14 @@
 package me.artofluxis.mod.traits.zombies
 
-import Position
-import effects.Effect
-import effects.EffectModifierType
-import game.objects.logic.LawnZombie
 import korlibs.math.geom.Vector2D
+import me.artofluxis.game.Position
+import me.artofluxis.game.effects.Effect
+import me.artofluxis.game.effects.EffectModifierType
+import me.artofluxis.game.game.objects.logic.LawnZombie
+import me.artofluxis.game.trait.TraitInstance
+import me.artofluxis.game.trait.events.alive.EffectStatusTraitListener
+import me.artofluxis.game.trait.events.alive.TickTraitListener
 import me.artofluxis.mod.Util
-import trait.TraitInstance
-import trait.events.alive.EffectStatusTraitListener
-import trait.events.alive.TickTraitListener
 import kotlin.random.Random
 
 class CommonZombieLogicInstance(

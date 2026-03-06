@@ -1,9 +1,9 @@
 package me.artofluxis.mod.traits.projectiles
 
-import game.objects.*
-import game.objects.logic.*
-import trait.*
-import trait.events.alive.*
+import me.artofluxis.game.game.objects.*
+import me.artofluxis.game.game.objects.logic.*
+import me.artofluxis.game.trait.*
+import me.artofluxis.game.trait.events.alive.*
 
 class EffectApplierProjectileInstance(
     override val parent: LawnProjectile,

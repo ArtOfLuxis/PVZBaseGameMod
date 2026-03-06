@@ -1,8 +1,9 @@
 package me.artofluxis.mod
 
-import effects.Effect
-import effects.visual.EffectVisualTint
-import game.objects.AliveLawnObject
+import me.artofluxis.game.Timer
+import me.artofluxis.game.effects.Effect
+import me.artofluxis.game.effects.visual.EffectVisualTint
+import me.artofluxis.game.game.objects.AliveLawnObject
 
 object Util {
 

@@ -1,10 +1,10 @@
 package me.artofluxis.mod.serializers
 
-import game.hitbox.*
+import me.artofluxis.game.game.hitbox.*
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
-import registries.*
+import me.artofluxis.game.registries.*
 
 object HitboxSerializer : KSerializer<Hitbox> {
     override val descriptor =

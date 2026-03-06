@@ -1,10 +1,12 @@
 package me.artofluxis.mod.traits.zombies
 
-import game.objects.*
-import game.objects.logic.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
-import trait.*
+import me.artofluxis.game.game.objects.LawnObject
+import me.artofluxis.game.game.objects.logic.LawnZombie
+import me.artofluxis.game.trait.Trait
+import me.artofluxis.game.trait.TraitInstance
+import me.artofluxis.game.trait.TraitType
 
 class CommonZombieLogicTrait(
     jsonObject: JsonObject

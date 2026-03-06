@@ -1,10 +1,10 @@
 package me.artofluxis.mod.serializers
 
-import effects.*
+import me.artofluxis.game.effects.*
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
-import registries.*
+import me.artofluxis.game.registries.*
 
 object EffectSerializer : KSerializer<Effect> {
     override val descriptor =

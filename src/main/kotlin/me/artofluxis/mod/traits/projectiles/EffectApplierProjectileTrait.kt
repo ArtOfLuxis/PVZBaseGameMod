@@ -1,11 +1,11 @@
 package me.artofluxis.mod.traits.projectiles
 
-import effects.*
-import game.objects.*
-import game.objects.logic.*
+import me.artofluxis.game.effects.*
+import me.artofluxis.game.game.objects.*
+import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
-import trait.*
+import me.artofluxis.game.trait.*
 
 class EffectApplierProjectileTrait(
     jsonObject: JsonObject

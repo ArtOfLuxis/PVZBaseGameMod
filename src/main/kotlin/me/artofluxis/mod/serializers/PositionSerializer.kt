@@ -1,6 +1,6 @@
 package me.artofluxis.mod.serializers
 
-import Position
+import me.artofluxis.game.Position
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.encoding.*

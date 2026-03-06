@@ -1,12 +1,12 @@
 package me.artofluxis.mod
 
+import me.artofluxis.game.trait.Trait
 import me.artofluxis.mod.traits.plants.CommonPlantLogicTrait
 import me.artofluxis.mod.traits.plants.StraightShooterTrait
 import me.artofluxis.mod.traits.projectiles.EffectApplierProjectileTrait
 import me.artofluxis.mod.traits.projectiles.FlammableProjectileTrait
 import me.artofluxis.mod.traits.projectiles.StraightProjectileLogicTrait
 import me.artofluxis.mod.traits.tiles.EffectApplierTileTrait
-import trait.Trait
 import me.artofluxis.mod.traits.zombies.CommonZombieLogicTrait
 
 @Suppress("unused")

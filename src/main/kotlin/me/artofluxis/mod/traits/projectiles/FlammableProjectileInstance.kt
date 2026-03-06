@@ -1,7 +1,7 @@
 package me.artofluxis.mod.traits.projectiles
 
-import game.objects.logic.*
-import trait.*
+import me.artofluxis.game.game.objects.logic.*
+import me.artofluxis.game.trait.*
 
 class FlammableProjectileInstance(
     override val parent: LawnProjectile,

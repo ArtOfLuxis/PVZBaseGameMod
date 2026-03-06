@@ -1,12 +1,12 @@
 package me.artofluxis.mod.traits.projectiles
 
-import Position
-import effects.EffectModifierType
-import game.objects.*
-import game.objects.logic.*
+import me.artofluxis.game.Position
+import me.artofluxis.game.effects.EffectModifierType
+import me.artofluxis.game.game.objects.*
+import me.artofluxis.game.game.objects.logic.*
 import korlibs.math.geom.*
-import trait.*
-import trait.events.alive.TickTraitListener
+import me.artofluxis.game.trait.*
+import me.artofluxis.game.trait.events.alive.TickTraitListener
 
 class StraightProjectileLogicInstance(
     override val parent: LawnProjectile,

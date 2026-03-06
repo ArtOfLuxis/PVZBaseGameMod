@@ -1,11 +1,11 @@
 package me.artofluxis.mod.traits.plants
 
-import effects.Effect
-import game.objects.logic.LawnPlant
+import me.artofluxis.game.effects.Effect
+import me.artofluxis.game.game.objects.logic.LawnPlant
 import me.artofluxis.mod.Util
-import trait.TraitInstance
-import trait.events.alive.EffectStatusTraitListener
-import trait.events.alive.TickTraitListener
+import me.artofluxis.game.trait.TraitInstance
+import me.artofluxis.game.trait.events.alive.EffectStatusTraitListener
+import me.artofluxis.game.trait.events.alive.TickTraitListener
 
 class CommonPlantLogicInstance(
     override val parent: LawnPlant,

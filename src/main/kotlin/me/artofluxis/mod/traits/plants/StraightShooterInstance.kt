@@ -1,10 +1,10 @@
 package me.artofluxis.mod.traits.plants
 
-import Position
-import effects.*
-import game.objects.logic.*
-import trait.*
-import trait.events.alive.*
+import me.artofluxis.game.Position
+import me.artofluxis.game.effects.*
+import me.artofluxis.game.game.objects.logic.*
+import me.artofluxis.game.trait.*
+import me.artofluxis.game.trait.events.alive.*
 import kotlin.random.*
 
 class StraightShooterInstance(

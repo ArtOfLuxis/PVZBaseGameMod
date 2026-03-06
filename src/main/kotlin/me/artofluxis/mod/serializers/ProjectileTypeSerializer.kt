@@ -1,10 +1,10 @@
 package me.artofluxis.mod.serializers
 
-import game.types.*
+import me.artofluxis.game.game.types.*
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
-import registries.*
+import me.artofluxis.game.registries.*
 
 object ProjectileTypeSerializer : KSerializer<ProjectileType> {
     override val descriptor =

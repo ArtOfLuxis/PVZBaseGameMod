@@ -1,9 +1,9 @@
 package me.artofluxis.mod.traits.tiles
 
-import effects.Effect
+import me.artofluxis.game.effects.Effect
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
-import trait.*
+import me.artofluxis.game.trait.*
 
 class EffectApplierTileTrait(
     jsonObject: JsonObject
