@@ -16,8 +16,8 @@ class EffectApplierProjectileTrait(
 ), TraitType.PROJECTILE) {
     override val values = deserialize(jsonObject)
 
-    val effect = get<Effect>("effect")
-    val effectTime = get<Double>("effectTime")
+    val effect get() = get<Effect>("effect")
+    val effectTime get() = get<Double>("effectTime")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnProjectile) {

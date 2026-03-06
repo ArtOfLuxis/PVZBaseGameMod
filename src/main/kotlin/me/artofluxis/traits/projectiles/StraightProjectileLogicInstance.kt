@@ -1,6 +1,7 @@
 package me.artofluxis.traits.projectiles
 
 import Position
+import effects.EffectModifierType
 import game.objects.*
 import game.objects.logic.*
 import korlibs.math.geom.*
@@ -11,6 +12,14 @@ class StraightProjectileLogicInstance(
     override val parent: LawnProjectile,
     override val trait: StraightProjectileLogicTrait
 ) : TraitInstance(parent, trait), TickTraitListener {
+    val flyingSpeed: Double get() {
+        val shooter = parent.parentShooter
+
+        if (shooter !is AliveLawnObject)
+            return 1.0
+
+        return shooter.getStat(1.0, EffectModifierType.SPEED)
+    }
 
     override fun tick(deltaTime: Double) {
         val lawnType = parent.scene.lawnType
@@ -20,8 +29,9 @@ class StraightProjectileLogicInstance(
             return
         }
 
+        val projectileSpeed = (parent.scene.lawnType.tileSize.first * deltaTime * trait.speed) * flyingSpeed
         parent.pos = Position(
-            parent.pos.x + parent.scene.lawnType.tileSize.first * deltaTime * trait.speed,
+            parent.pos.x + projectileSpeed,
             parent.pos.y
         )
         parent.image!!.pos = Vector2D(parent.pos.x, parent.pos.y)

@@ -15,9 +15,9 @@ class CommonZombieLogicTrait(
 ), TraitType.ZOMBIE) {
     override val values = deserialize(jsonObject)
 
-    val eatDPS = get<Double>("eatDPS")
-    val speed = get<Double>("speed")
-    val additionalSpeed = get<Double>("additionalSpeed")
+    val eatDPS get() = get<Double>("eatDPS")
+    val speed get() = get<Double>("speed")
+    val additionalSpeed get() = get<Double>("additionalSpeed")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnZombie) {

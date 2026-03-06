@@ -13,7 +13,7 @@ class StraightProjectileLogicTrait(
 ), TraitType.PROJECTILE) {
     override val values = deserialize(jsonObject)
 
-    val speed = get<Double>("speed")
+    val speed get() = get<Double>("speed")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnProjectile) {
