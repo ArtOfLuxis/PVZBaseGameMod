@@ -9,6 +9,7 @@ import me.artofluxis.traits.tiles.EffectApplierTileTrait
 import trait.Trait
 import me.artofluxis.traits.zombies.CommonZombieLogicTrait
 
+@Suppress("unused")
 object ModInitializer {
     @JvmStatic
     fun init() {

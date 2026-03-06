@@ -1,13 +1,18 @@
 package me.artofluxis.traits.plants
 
 import Position
-import game.objects.*
-import game.objects.logic.*
-import kotlinx.serialization.builtins.*
-import kotlinx.serialization.json.*
-import projectile.*
-import serializers.*
-import trait.*
+import game.objects.LawnObject
+import game.objects.logic.LawnPlant
+import game.types.ProjectileType
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.builtins.serializer
+import kotlinx.serialization.json.JsonObject
+import me.artofluxis.serializers.HitboxSerializer
+import me.artofluxis.serializers.PositionSerializer
+import me.artofluxis.serializers.ProjectileTypeSerializer
+import trait.Trait
+import trait.TraitInstance
+import trait.TraitType
 
 class StraightShooterTrait(
     jsonObject: JsonObject

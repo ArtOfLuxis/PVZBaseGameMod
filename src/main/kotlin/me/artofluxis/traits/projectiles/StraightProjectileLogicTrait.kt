@@ -9,7 +9,7 @@ import trait.*
 class StraightProjectileLogicTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-        "speed" to Double.serializer() // make a separate class soon
+        "speed" to Double.serializer()
 ), TraitType.PROJECTILE) {
     override val values = deserialize(jsonObject)
 

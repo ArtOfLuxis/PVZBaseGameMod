@@ -5,7 +5,7 @@ import game.objects.*
 import game.objects.logic.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
-import serializers.*
+import me.artofluxis.serializers.EffectSerializer
 import trait.*
 
 class EffectApplierProjectileTrait(
