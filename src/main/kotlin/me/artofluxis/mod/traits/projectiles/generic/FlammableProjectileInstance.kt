@@ -1,7 +1,7 @@
-package me.artofluxis.mod.traits.projectiles
+package me.artofluxis.mod.traits.projectiles.generic
 
-import me.artofluxis.game.game.objects.logic.*
-import me.artofluxis.game.trait.*
+import me.artofluxis.game.game.objects.logic.LawnProjectile
+import me.artofluxis.game.trait.TraitInstance
 import me.artofluxis.game.trait.events.general.TickTraitListener
 
 class FlammableProjectileInstance(

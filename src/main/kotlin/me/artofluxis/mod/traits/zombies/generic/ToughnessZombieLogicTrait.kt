@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.zombies
+package me.artofluxis.mod.traits.zombies.generic
 
 import kotlinx.serialization.json.*
 import me.artofluxis.game.game.objects.LawnObject
@@ -7,7 +7,6 @@ import me.artofluxis.game.trait.Trait
 import me.artofluxis.game.trait.TraitInstance
 import me.artofluxis.game.trait.TraitType
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
-import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
 class ToughnessZombieLogicTrait(
     jsonObject: JsonObject

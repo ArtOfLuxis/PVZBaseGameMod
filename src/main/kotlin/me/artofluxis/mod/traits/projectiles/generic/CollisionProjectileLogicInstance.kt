@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.projectiles
+package me.artofluxis.mod.traits.projectiles.generic
 
 import me.artofluxis.game.game.objects.DamageableLawnObject
 import me.artofluxis.game.game.objects.logic.LawnProjectile
@@ -12,7 +12,7 @@ class CollisionProjectileLogicInstance(
     TickTraitListener
 {
     override fun tick(deltaTime: Double) {
-        val hitObject = trait.detectionHitbox.findIntersectingObjects(parent) { lawnObject, _ ->
+        val hitObject = parent.findIntersectingObjects { lawnObject, _ ->
             lawnObject.team != parent.team
         }.firstOrNull() as? DamageableLawnObject
 

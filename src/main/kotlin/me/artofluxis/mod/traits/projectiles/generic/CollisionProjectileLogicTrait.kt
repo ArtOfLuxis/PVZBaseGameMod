@@ -1,27 +1,25 @@
-package me.artofluxis.mod.traits.projectiles
+package me.artofluxis.mod.traits.projectiles.generic
 
-import me.artofluxis.game.effects.*
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.json.*
+import me.artofluxis.game.game.hitbox.Hitbox
 import me.artofluxis.game.trait.*
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
-import me.artofluxis.mod.serializers.lazy.EffectDeserializer
+import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
-class EffectApplierProjectileTrait(
+class CollisionProjectileLogicTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-    "effect" to EffectDeserializer,
-    "effectTime" to DoubleDeserializer,
+    "damage" to DoubleDeserializer,
 ), TraitType.PROJECTILE, jsonObject) {
 
-    val effect get() = get<Effect>("effect")
-    val effectTime get() = get<Double>("effectTime")
+    val damage get() = get<Double>("damage")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnProjectile) {
             "Parent for ${this::class.simpleName} must be a ${LawnProjectile::class.simpleName}, found a ${parent::class.simpleName}"
         }
-        return EffectApplierProjectileInstance(parent, this)
+        return CollisionProjectileLogicInstance(parent, this)
     }
 }

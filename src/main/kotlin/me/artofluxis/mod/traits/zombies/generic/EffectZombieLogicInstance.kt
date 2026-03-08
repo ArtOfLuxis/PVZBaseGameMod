@@ -1,15 +1,15 @@
-package me.artofluxis.mod.traits.plants
+package me.artofluxis.mod.traits.zombies.generic
 
 import me.artofluxis.game.effects.Effect
-import me.artofluxis.game.game.objects.logic.LawnPlant
+import me.artofluxis.game.game.objects.logic.LawnZombie
 import me.artofluxis.game.trait.TraitInstance
 import me.artofluxis.game.trait.events.alive.EffectStatusTraitListener
 import me.artofluxis.game.trait.events.general.TickTraitListener
 import me.artofluxis.mod.Util
 
-class EffectPlantLogicInstance(
-    override val parent: LawnPlant,
-    override val trait: EffectPlantLogicTrait
+class EffectZombieLogicInstance(
+    override val parent: LawnZombie,
+    override val trait: EffectZombieLogicTrait
 ) : TraitInstance(parent, trait),
     EffectStatusTraitListener,
     TickTraitListener

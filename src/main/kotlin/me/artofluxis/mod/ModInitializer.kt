@@ -4,18 +4,19 @@ import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.effects.OperationOrder
 import me.artofluxis.game.effects.OperationType
 import me.artofluxis.game.trait.Trait
-import me.artofluxis.mod.traits.plants.ToughnessPlantLogicTrait
-import me.artofluxis.mod.traits.plants.EffectPlantLogicTrait
+import me.artofluxis.mod.traits.plants.generic.ToughnessPlantLogicTrait
+import me.artofluxis.mod.traits.plants.generic.EffectPlantLogicTrait
 import me.artofluxis.mod.traits.plants.StraightShooterTrait
-import me.artofluxis.mod.traits.projectiles.CollisionProjectileLogicTrait
-import me.artofluxis.mod.traits.projectiles.EffectApplierProjectileTrait
-import me.artofluxis.mod.traits.projectiles.EffectRemoverProjectileTrait
-import me.artofluxis.mod.traits.projectiles.FlammableProjectileTrait
+import me.artofluxis.mod.traits.projectiles.generic.CollisionProjectileLogicTrait
+import me.artofluxis.mod.traits.projectiles.generic.EffectApplierProjectileTrait
+import me.artofluxis.mod.traits.projectiles.generic.EffectRemoverProjectileTrait
+import me.artofluxis.mod.traits.projectiles.generic.FlammableProjectileTrait
 import me.artofluxis.mod.traits.projectiles.StraightProjectileLogicTrait
 import me.artofluxis.mod.traits.tiles.EffectApplierTileTrait
-import me.artofluxis.mod.traits.zombies.EffectZombieLogicTrait
-import me.artofluxis.mod.traits.zombies.MovementZombieLogicTrait
-import me.artofluxis.mod.traits.zombies.ToughnessZombieLogicTrait
+import me.artofluxis.mod.traits.tiles.generic.OnTileLogicTrait
+import me.artofluxis.mod.traits.zombies.generic.EffectZombieLogicTrait
+import me.artofluxis.mod.traits.zombies.generic.MovementZombieLogicTrait
+import me.artofluxis.mod.traits.zombies.generic.ToughnessZombieLogicTrait
 
 @Suppress("unused")
 object ModInitializer {
@@ -44,6 +45,7 @@ object ModInitializer {
         Trait.register("ToughnessZombieLogic", ::ToughnessZombieLogicTrait)
 
         // tile traits
+        Trait.register("OnTileLogic", ::OnTileLogicTrait)
         Trait.register("EffectApplierTile", ::EffectApplierTileTrait)
     }
 

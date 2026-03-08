@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.zombies
+package me.artofluxis.mod.traits.zombies.generic
 
 import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.logic.LawnZombie

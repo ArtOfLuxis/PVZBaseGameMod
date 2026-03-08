@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.plants
+package me.artofluxis.mod.traits.plants.generic
 
 import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.logic.LawnPlant

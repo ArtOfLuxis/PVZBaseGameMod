@@ -1,11 +1,10 @@
-package me.artofluxis.mod.traits.plants
+package me.artofluxis.mod.traits.plants.generic
 
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.json.*
 import me.artofluxis.game.trait.*
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
-import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
 class ToughnessPlantLogicTrait(
     jsonObject: JsonObject

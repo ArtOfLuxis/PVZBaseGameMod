@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.zombies
+package me.artofluxis.mod.traits.zombies.generic
 
 import korlibs.math.geom.Vector2D
 import me.artofluxis.game.Position

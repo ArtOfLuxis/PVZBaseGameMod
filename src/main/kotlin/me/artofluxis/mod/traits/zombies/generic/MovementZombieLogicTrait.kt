@@ -1,4 +1,4 @@
-package me.artofluxis.mod.traits.zombies
+package me.artofluxis.mod.traits.zombies.generic
 
 import kotlinx.serialization.json.*
 import me.artofluxis.game.game.hitbox.Hitbox

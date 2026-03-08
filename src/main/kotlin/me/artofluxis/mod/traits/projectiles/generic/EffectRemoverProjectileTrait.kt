@@ -1,24 +1,24 @@
-package me.artofluxis.mod.traits.projectiles
+package me.artofluxis.mod.traits.projectiles.generic
 
+import me.artofluxis.game.effects.*
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.json.*
-import me.artofluxis.game.game.types.ProjectileType
 import me.artofluxis.game.trait.*
-import me.artofluxis.mod.serializers.lazy.ProjectileTypeDeserializer
+import me.artofluxis.mod.serializers.lazy.EffectDeserializer
 
-class FlammableProjectileTrait(
+class EffectRemoverProjectileTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-    "newProjectile" to ProjectileTypeDeserializer
+    "effect" to EffectDeserializer,
 ), TraitType.PROJECTILE, jsonObject) {
 
-    val newProjectile get() = get<ProjectileType>("newProjectile")
+    val effect get() = get<Effect>("effect")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnProjectile) {
             "Parent for ${this::class.simpleName} must be a ${LawnProjectile::class.simpleName}, found a ${parent::class.simpleName}"
         }
-        return FlammableProjectileInstance(parent, this)
+        return EffectRemoverProjectileInstance(parent, this)
     }
 }

@@ -1,17 +1,17 @@
-package me.artofluxis.mod.traits.projectiles
+package me.artofluxis.mod.traits.projectiles.generic
 
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import me.artofluxis.game.trait.*
 import me.artofluxis.game.trait.events.alive.*
 
-class EffectApplierProjectileInstance(
+class EffectRemoverProjectileInstance(
     override val parent: LawnProjectile,
-    override val trait: EffectApplierProjectileTrait
+    override val trait: EffectRemoverProjectileTrait
 ) : TraitInstance(parent, trait),
     ProjectileHitObjectTraitListener
 {
     override fun projectileHitObject(obj: LawnObject, damage: Double) {
-        if (obj is AliveLawnObject) obj.applyEffect(trait.effect, trait.effectTime)
+        if (obj is AliveLawnObject) obj.removeEffect(trait.effect)
     }
 }
