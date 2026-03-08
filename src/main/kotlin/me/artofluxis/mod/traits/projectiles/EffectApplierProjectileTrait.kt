@@ -3,17 +3,17 @@ package me.artofluxis.mod.traits.projectiles
 import me.artofluxis.game.effects.*
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
-import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import me.artofluxis.game.trait.*
+import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
+import me.artofluxis.mod.serializers.lazy.EffectDeserializer
 
 class EffectApplierProjectileTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-    "effect" to me.artofluxis.mod.serializers.EffectSerializer,
-    "effectTime" to Double.serializer(),
-), TraitType.PROJECTILE) {
-    override val values = deserialize(jsonObject)
+    "effect" to EffectDeserializer,
+    "effectTime" to DoubleDeserializer,
+), TraitType.PROJECTILE, jsonObject) {
 
     val effect get() = get<Effect>("effect")
     val effectTime get() = get<Double>("effectTime")

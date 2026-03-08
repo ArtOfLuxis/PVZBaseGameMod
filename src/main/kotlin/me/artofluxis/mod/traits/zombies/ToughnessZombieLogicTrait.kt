@@ -1,30 +1,26 @@
 package me.artofluxis.mod.traits.zombies
 
-import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.logic.LawnZombie
 import me.artofluxis.game.trait.Trait
 import me.artofluxis.game.trait.TraitInstance
 import me.artofluxis.game.trait.TraitType
+import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
+import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
-class CommonZombieLogicTrait(
+class ToughnessZombieLogicTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-    "eatDPS" to Double.serializer(),
-    "speed" to Double.serializer(),
-    "additionalSpeed" to Double.serializer()
-), TraitType.ZOMBIE) {
-    override val values = deserialize(jsonObject)
+    "toughness" to DoubleDeserializer,
+), TraitType.ZOMBIE, jsonObject) {
 
-    val eatDPS get() = get<Double>("eatDPS")
-    val speed get() = get<Double>("speed")
-    val additionalSpeed get() = get<Double>("additionalSpeed")
+    val toughness get() = get<Double>("toughness")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnZombie) {
             "Parent for ${this::class.simpleName} must be a ${LawnZombie::class.simpleName}, found a ${parent::class.simpleName}"
         }
-        return CommonZombieLogicInstance(parent, this)
+        return ToughnessZombieLogicInstance(parent, this)
     }
 }

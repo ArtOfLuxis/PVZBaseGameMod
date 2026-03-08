@@ -3,21 +3,25 @@ package me.artofluxis.mod.traits.projectiles
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.json.*
+import me.artofluxis.game.game.hitbox.Hitbox
 import me.artofluxis.game.trait.*
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
+import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
-class StraightProjectileLogicTrait(
+class CollisionProjectileLogicTrait(
     jsonObject: JsonObject
 ) : Trait(hashMapOf(
-        "speed" to DoubleDeserializer
+    "damage" to DoubleDeserializer,
+    "detectionHitbox" to HitboxDeserializer,
 ), TraitType.PROJECTILE, jsonObject) {
 
-    val speed get() = get<Double>("speed")
+    val damage get() = get<Double>("damage")
+    val detectionHitbox get() = get<Hitbox>("detectionHitbox")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnProjectile) {
             "Parent for ${this::class.simpleName} must be a ${LawnProjectile::class.simpleName}, found a ${parent::class.simpleName}"
         }
-        return StraightProjectileLogicInstance(parent, this)
+        return CollisionProjectileLogicInstance(parent, this)
     }
 }

@@ -2,25 +2,21 @@ package me.artofluxis.mod.traits.zombies
 
 import korlibs.math.geom.Vector2D
 import me.artofluxis.game.Position
-import me.artofluxis.game.effects.Effect
 import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.game.objects.logic.LawnZombie
 import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.alive.EffectStatusTraitListener
-import me.artofluxis.game.trait.events.alive.TickTraitListener
-import me.artofluxis.mod.Util
+import me.artofluxis.game.trait.events.general.TickTraitListener
 import kotlin.random.Random
 
-class CommonZombieLogicInstance(
+class MovementZombieLogicInstance(
     override val parent: LawnZombie,
-    override val trait: CommonZombieLogicTrait
+    override val trait: MovementZombieLogicTrait
 ) : TraitInstance(parent, trait),
-    EffectStatusTraitListener,
     TickTraitListener
 {
     private val baseSpeed = trait.speed + Random.nextDouble(0.0, trait.additionalSpeed)
     private val actualSpeed
-        get() = parent.getStat(baseSpeed, EffectModifierType.SPEED)
+        get() = parent.getStat(baseSpeed, EffectModifierType.get("speed"))
 
     override fun tick(deltaTime: Double) {
         val lawnType = parent.scene.lawnType
@@ -35,20 +31,5 @@ class CommonZombieLogicInstance(
             parent.pos.y
         )
         parent.image!!.pos = Vector2D(parent.pos.x, parent.pos.y)
-
-        val effects = parent.effects.toList()
-        for ((effect, effectTimer) in effects) {
-            if (effectTimer.isExpired()) {
-                removedEffect(effect)
-            }
-        }
-    }
-
-    override fun appliedEffect(effect: Effect, effectTime: Double) {
-        Util.applyEffect(parent, effect, effectTime)
-    }
-
-    override fun removedEffect(effect: Effect) {
-        Util.removeEffect(parent, effect)
     }
 }

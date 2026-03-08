@@ -4,7 +4,7 @@ import me.artofluxis.game.Position
 import me.artofluxis.game.effects.*
 import me.artofluxis.game.game.objects.logic.*
 import me.artofluxis.game.trait.*
-import me.artofluxis.game.trait.events.alive.*
+import me.artofluxis.game.trait.events.general.TickTraitListener
 import kotlin.random.*
 
 class StraightShooterInstance(
@@ -18,7 +18,7 @@ class StraightShooterInstance(
     private var projectilesLeft = 0
 
     private val fireRateMultiplier
-        get() = parent.getStat(1.0, EffectModifierType.SPEED)
+        get() = parent.getStat(1.0, EffectModifierType.get("speed"))
 
     override fun tick(deltaTime: Double) {
         if (projectilesLeft <= 0) {
@@ -31,6 +31,12 @@ class StraightShooterInstance(
             }
             return
         }
+
+        val shouldShoot = trait.detectionHitbox.anyIntersectingObject(parent) { lawnObject, _ ->
+            lawnObject.team != parent.team
+        }
+
+        if (!shouldShoot) return
 
         projectileTimer += deltaTime * fireRateMultiplier
 
@@ -51,13 +57,14 @@ class StraightShooterInstance(
         val tileSize = parent.scene.lawnType.tileSize
         val projectile = LawnProjectile(
             Position(
-                parent.pos.x +  trait.projectilePositionOffset.x              * tileSize.first,
-                parent.pos.y + (trait.projectilePositionOffset.y + rowOffset) * tileSize.second
+                parent.pos.x +  trait.projectilePositionOffset.x              * tileSize.first  * parent.scale(),
+                parent.pos.y + (trait.projectilePositionOffset.y + rowOffset) * tileSize.second * parent.scale()
             ),
-            parent.row + rowOffset, trait.projectile.hitHitbox, parent.team, parent.scene,
+            parent.row + rowOffset, parent.team, parent.scene,
             null, hashSetOf(), trait.projectile, parent
         )
-        trait.projectile.traits.forEach { projectile.traits.add(it.createInstance(projectile)) }
+        trait.projectile.traits.forEach { projectile.addTrait(it.createInstance(projectile)) }
+        trait.extraProjectileTraits.forEach { projectile.addTrait(it.createInstance(projectile)) }
 
         parent.scene.putProjectile(projectile)
     }

@@ -39,6 +39,8 @@ kotlin {
 }
 
 tasks.jar {
+    archiveFileName.set("mod.jar")
+
     manifest {
         attributes(
             "Main-Class" to "$groupName.ModInitializer"

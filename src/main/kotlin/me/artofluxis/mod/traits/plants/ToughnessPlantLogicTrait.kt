@@ -4,16 +4,21 @@ import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import kotlinx.serialization.json.*
 import me.artofluxis.game.trait.*
+import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
+import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
-class CommonPlantLogicTrait(
+class ToughnessPlantLogicTrait(
     jsonObject: JsonObject
-) : Trait(hashMapOf(), TraitType.PLANT) {
-    override val values = deserialize(jsonObject)
+) : Trait(hashMapOf(
+    "toughness" to DoubleDeserializer,
+), TraitType.PLANT, jsonObject) {
+
+    val toughness get() = get<Double>("toughness")
 
     override fun createInstance(parent: LawnObject): TraitInstance {
         require(parent is LawnPlant) {
             "Parent for ${this::class.simpleName} must be a ${LawnPlant::class.simpleName}, found a ${parent::class.simpleName}"
         }
-        return CommonPlantLogicInstance(parent, this)
+        return ToughnessPlantLogicInstance(parent, this)
     }
 }

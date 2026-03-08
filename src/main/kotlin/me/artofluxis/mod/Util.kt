@@ -8,14 +8,18 @@ import me.artofluxis.game.game.objects.AliveLawnObject
 object Util {
 
     fun applyEffect(obj: AliveLawnObject, effect: Effect, effectTime: Double) {
-        val currentTime = obj.effects[effect]?.remaining() ?: 0.0
-        if (effectTime > currentTime)
-            obj.effects[effect] = Timer.start(effectTime)
+        if (effect in obj.effects) {
+            val currentTime = obj.effects[effect]!!.remaining()
+            if (effectTime > currentTime)
+                obj.effects[effect] = Timer.start(effectTime)
 
-        effect.visuals.forEach {
-            when (it) {
-                is EffectVisualTint -> {
-                    obj.highlightFilter.colors.add(it.color)
+        } else {
+            obj.effects[effect] = Timer.start(effectTime)
+            effect.visuals.forEach {
+                when (it) {
+                    is EffectVisualTint -> {
+                        obj.highlightFilter.colors.add(it.color)
+                    }
                 }
             }
         }

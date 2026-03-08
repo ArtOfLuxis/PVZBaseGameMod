@@ -6,19 +6,21 @@ import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import korlibs.math.geom.*
 import me.artofluxis.game.trait.*
-import me.artofluxis.game.trait.events.alive.TickTraitListener
+import me.artofluxis.game.trait.events.general.TickTraitListener
 
 class StraightProjectileLogicInstance(
     override val parent: LawnProjectile,
     override val trait: StraightProjectileLogicTrait
-) : TraitInstance(parent, trait), TickTraitListener {
-    val flyingSpeed: Double get() {
+) : TraitInstance(parent, trait),
+    TickTraitListener
+{
+    val flyingSpeedMultiplier: Double get() {
         val shooter = parent.parentShooter
 
         if (shooter !is AliveLawnObject)
             return 1.0
 
-        return shooter.getStat(1.0, EffectModifierType.SPEED)
+        return shooter.getStat(1.0, EffectModifierType.get("speed"))
     }
 
     override fun tick(deltaTime: Double) {
@@ -29,23 +31,11 @@ class StraightProjectileLogicInstance(
             return
         }
 
-        val projectileSpeed = (parent.scene.lawnType.tileSize.first * deltaTime * trait.speed) * flyingSpeed
+        val projectileSpeed = (parent.scene.lawnType.tileSize.first * deltaTime * trait.speed) * flyingSpeedMultiplier
         parent.pos = Position(
             parent.pos.x + projectileSpeed,
             parent.pos.y
         )
         parent.image!!.pos = Vector2D(parent.pos.x, parent.pos.y)
-
-        val hitObject = parent.findIntersectingObjects { lawnObject, _ ->
-            lawnObject.team != parent.team
-                && lawnObject.row == parent.row
-                && lawnObject is AliveLawnObject
-        }.firstOrNull() as? AliveLawnObject
-
-        if (hitObject != null) {
-            parent.projectileHitObject(hitObject)
-            hitObject.hitByProjectile(parent)
-            parent.scene.removeObject(parent)
-        }
     }
 }
