@@ -4,6 +4,7 @@ import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.effects.OperationOrder
 import me.artofluxis.game.effects.OperationType
 import me.artofluxis.game.trait.Trait
+import me.artofluxis.mod.traits.generic.GenericAnimationTickerTrait
 import me.artofluxis.mod.traits.plants.generic.ToughnessPlantLogicTrait
 import me.artofluxis.mod.traits.plants.generic.EffectPlantLogicTrait
 import me.artofluxis.mod.traits.plants.StraightShooterTrait
@@ -27,6 +28,9 @@ object ModInitializer {
     }
 
     private fun registerTraits() {
+        // generic traits
+        Trait.register("GenericAnimationTicker", ::GenericAnimationTickerTrait)
+
         // plant traits
         Trait.register("ToughnessPlantLogic", ::ToughnessPlantLogicTrait)
         Trait.register("StraightShooterPlant", ::StraightShooterTrait)

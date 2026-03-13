@@ -30,6 +30,6 @@ class MovementZombieLogicInstance(
             parent.pos.x - parent.scene.lawnType.tileSize.first * deltaTime * actualSpeed,
             parent.pos.y
         )
-        parent.image!!.pos = Vector2D(parent.pos.x, parent.pos.y)
+        parent.image?.pos = Vector2D(parent.pos.x, parent.pos.y)
     }
 }

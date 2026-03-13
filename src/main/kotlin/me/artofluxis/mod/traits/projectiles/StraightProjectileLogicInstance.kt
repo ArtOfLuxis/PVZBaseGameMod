@@ -36,6 +36,6 @@ class StraightProjectileLogicInstance(
             parent.pos.x + projectileSpeed,
             parent.pos.y
         )
-        parent.image!!.pos = Vector2D(parent.pos.x, parent.pos.y)
+        parent.image?.pos = Vector2D(parent.pos.x, parent.pos.y)
     }
 }
