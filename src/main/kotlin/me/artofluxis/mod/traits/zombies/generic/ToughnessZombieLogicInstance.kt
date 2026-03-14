@@ -2,14 +2,16 @@ package me.artofluxis.mod.traits.zombies.generic
 
 import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.logic.LawnZombie
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.alive.DamagedTraitListener
-import me.artofluxis.game.trait.events.alive.DeathTraitListener
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.game.mod.trait.TraitInstance
+import me.artofluxis.mod.extensions.DamageableLawnObjectExtensions.death
+import me.artofluxis.mod.listeners.alive.DamagedTraitListener
+import me.artofluxis.mod.listeners.alive.DeathTraitListener
 
 class ToughnessZombieLogicInstance(
     override val parent: LawnZombie,
     override val trait: ToughnessZombieLogicTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     DamagedTraitListener,
     DeathTraitListener
 {

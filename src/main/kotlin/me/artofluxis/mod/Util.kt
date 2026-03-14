@@ -6,7 +6,6 @@ import me.artofluxis.game.effects.visual.EffectVisualTint
 import me.artofluxis.game.game.objects.AliveLawnObject
 
 object Util {
-
     fun applyEffect(obj: AliveLawnObject, effect: Effect, effectTime: Double) {
         if (effect in obj.effects) {
             val currentTime = obj.effects[effect]!!.remaining()

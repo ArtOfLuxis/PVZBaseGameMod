@@ -1,21 +1,16 @@
 package me.artofluxis.mod.traits.generic
 
-import me.artofluxis.game.effects.Effect
 import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.game.objects.AliveLawnObject
-import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.TickableLawnObject
-import me.artofluxis.game.game.objects.logic.LawnPlant
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.alive.EffectStatusTraitListener
-import me.artofluxis.game.trait.events.general.TickTraitListener
-import me.artofluxis.mod.Util
-import me.artofluxis.mod.traits.plants.generic.EffectPlantLogicTrait
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.mod.listeners.generic.TickTraitListener
+import me.artofluxis.mod.extensions.AliveLawnObjectExtensions.getStat
 
 class GenericAnimationTickerInstance(
     override val parent: TickableLawnObject,
     override val trait: GenericAnimationTickerTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener
 {
     private val animationSpeed

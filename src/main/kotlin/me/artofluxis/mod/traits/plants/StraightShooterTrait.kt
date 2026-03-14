@@ -7,9 +7,10 @@ import me.artofluxis.game.game.types.ProjectileType
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.JsonObject
 import me.artofluxis.game.game.hitbox.Hitbox
-import me.artofluxis.game.trait.Trait
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.TraitType
+import me.artofluxis.game.game.objects.LocationalLawnObject
+import me.artofluxis.game.mod.trait.Trait
+import me.artofluxis.game.mod.trait.TraitInstance
+import me.artofluxis.game.mod.trait.TraitType
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
 import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 import me.artofluxis.mod.serializers.lazy.IntDeserializer
@@ -43,7 +44,7 @@ class StraightShooterTrait(
     val attackRows get() = get<List<Int>>("attackRows")
     val extraProjectileTraits get() = get<List<Trait>>("extraProjectileTraits")
 
-    override fun createInstance(parent: LawnObject): TraitInstance {
+    override fun createInstance(parent: LocationalLawnObject): TraitInstance {
         require(parent is LawnPlant) {
             "Parent for ${this::class.simpleName} must be a ${LawnPlant::class.simpleName}, found a ${parent::class.simpleName}"
         }

@@ -1,12 +1,12 @@
 package me.artofluxis.mod.traits.projectiles.generic
 
-import me.artofluxis.game.game.objects.*
-import me.artofluxis.game.game.objects.logic.*
-import kotlinx.serialization.json.*
-import me.artofluxis.game.game.hitbox.Hitbox
-import me.artofluxis.game.trait.*
+import kotlinx.serialization.json.JsonObject
+import me.artofluxis.game.game.objects.LocationalLawnObject
+import me.artofluxis.game.game.objects.logic.LawnProjectile
+import me.artofluxis.game.mod.trait.Trait
+import me.artofluxis.game.mod.trait.TraitInstance
+import me.artofluxis.game.mod.trait.TraitType
 import me.artofluxis.mod.serializers.lazy.DoubleDeserializer
-import me.artofluxis.mod.serializers.lazy.HitboxDeserializer
 
 class CollisionProjectileLogicTrait(
     jsonObject: JsonObject
@@ -16,7 +16,7 @@ class CollisionProjectileLogicTrait(
 
     val damage get() = get<Double>("damage")
 
-    override fun createInstance(parent: LawnObject): TraitInstance {
+    override fun createInstance(parent: LocationalLawnObject): TraitInstance {
         require(parent is LawnProjectile) {
             "Parent for ${this::class.simpleName} must be a ${LawnProjectile::class.simpleName}, found a ${parent::class.simpleName}"
         }

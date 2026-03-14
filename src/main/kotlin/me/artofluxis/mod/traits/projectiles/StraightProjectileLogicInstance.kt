@@ -5,13 +5,14 @@ import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.game.objects.*
 import me.artofluxis.game.game.objects.logic.*
 import korlibs.math.geom.*
-import me.artofluxis.game.trait.*
-import me.artofluxis.game.trait.events.general.TickTraitListener
+import me.artofluxis.game.mod.trait.*
+import me.artofluxis.mod.listeners.generic.TickTraitListener
+import me.artofluxis.mod.extensions.AliveLawnObjectExtensions.getStat
 
 class StraightProjectileLogicInstance(
     override val parent: LawnProjectile,
     override val trait: StraightProjectileLogicTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener
 {
     val flyingSpeedMultiplier: Double get() {

@@ -3,15 +3,16 @@ package me.artofluxis.mod.traits.plants
 import me.artofluxis.game.Position
 import me.artofluxis.game.effects.*
 import me.artofluxis.game.game.objects.logic.*
-import me.artofluxis.game.trait.*
-import me.artofluxis.game.trait.events.alive.ObjectCreatedTraitListener
-import me.artofluxis.game.trait.events.general.TickTraitListener
+import me.artofluxis.game.mod.trait.*
+import me.artofluxis.mod.listeners.generic.ObjectCreatedTraitListener
+import me.artofluxis.mod.listeners.generic.TickTraitListener
+import me.artofluxis.mod.extensions.AliveLawnObjectExtensions.getStat
 import kotlin.random.*
 
 class StraightShooterInstance(
     override val parent: LawnPlant,
     override val trait: StraightShooterTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener,
     ObjectCreatedTraitListener
 {

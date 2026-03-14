@@ -5,11 +5,10 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.JsonDecoder
-import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import me.artofluxis.game.trait.Trait
+import me.artofluxis.game.mod.trait.Trait
 
 object TraitSerializer : KSerializer<Trait> {
     override val descriptor: SerialDescriptor

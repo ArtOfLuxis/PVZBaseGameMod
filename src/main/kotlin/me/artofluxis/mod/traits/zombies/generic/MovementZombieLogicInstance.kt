@@ -4,14 +4,15 @@ import korlibs.math.geom.Vector2D
 import me.artofluxis.game.Position
 import me.artofluxis.game.effects.EffectModifierType
 import me.artofluxis.game.game.objects.logic.LawnZombie
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.general.TickTraitListener
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.mod.listeners.generic.TickTraitListener
+import me.artofluxis.mod.extensions.AliveLawnObjectExtensions.getStat
 import kotlin.random.Random
 
 class MovementZombieLogicInstance(
     override val parent: LawnZombie,
     override val trait: MovementZombieLogicTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener
 {
     private val baseSpeed = trait.speed + Random.nextDouble(0.0, trait.additionalSpeed)

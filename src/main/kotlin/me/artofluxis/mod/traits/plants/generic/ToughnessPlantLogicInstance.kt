@@ -2,14 +2,15 @@ package me.artofluxis.mod.traits.plants.generic
 
 import me.artofluxis.game.game.objects.LawnObject
 import me.artofluxis.game.game.objects.logic.LawnPlant
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.alive.DamagedTraitListener
-import me.artofluxis.game.trait.events.alive.DeathTraitListener
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.mod.extensions.DamageableLawnObjectExtensions.death
+import me.artofluxis.mod.listeners.alive.DamagedTraitListener
+import me.artofluxis.mod.listeners.alive.DeathTraitListener
 
 class ToughnessPlantLogicInstance(
     override val parent: LawnPlant,
     override val trait: ToughnessPlantLogicTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     DamagedTraitListener,
     DeathTraitListener
 {

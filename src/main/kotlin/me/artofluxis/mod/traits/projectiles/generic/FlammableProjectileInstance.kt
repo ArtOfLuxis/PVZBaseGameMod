@@ -1,13 +1,13 @@
 package me.artofluxis.mod.traits.projectiles.generic
 
 import me.artofluxis.game.game.objects.logic.LawnProjectile
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.general.TickTraitListener
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.mod.listeners.generic.TickTraitListener
 
 class FlammableProjectileInstance(
     override val parent: LawnProjectile,
     override val trait: FlammableProjectileTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener
 {
     override fun tick(deltaTime: Double) {

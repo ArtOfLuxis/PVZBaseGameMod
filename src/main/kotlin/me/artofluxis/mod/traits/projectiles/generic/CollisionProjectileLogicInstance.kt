@@ -2,13 +2,15 @@ package me.artofluxis.mod.traits.projectiles.generic
 
 import me.artofluxis.game.game.objects.DamageableLawnObject
 import me.artofluxis.game.game.objects.logic.LawnProjectile
-import me.artofluxis.game.trait.TraitInstance
-import me.artofluxis.game.trait.events.general.TickTraitListener
+import me.artofluxis.game.mod.trait.ObjectTraitInstance
+import me.artofluxis.mod.listeners.generic.TickTraitListener
+import me.artofluxis.mod.extensions.DamageableLawnObjectExtensions.hitByProjectile
+import me.artofluxis.mod.extensions.LawnProjectileExtensions.projectileHitObject
 
 class CollisionProjectileLogicInstance(
     override val parent: LawnProjectile,
     override val trait: CollisionProjectileLogicTrait
-) : TraitInstance(parent, trait),
+) : ObjectTraitInstance,
     TickTraitListener
 {
     override fun tick(deltaTime: Double) {
